@@ -28,7 +28,7 @@
       --white: #FFFFFF;
       --muted: rgba(255, 255, 255, 0.72);
       --faint: rgba(255, 255, 255, 0.45);
-      --lane: rgba(0, 0, 0, 0.28);
+      --lane: rgba(0, 0, 0, 0.32);
       --line: rgba(255, 255, 255, 0.14);
     }
 
@@ -42,29 +42,24 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body {
-      overflow: hidden;
-    }
+    body { overflow: hidden; }
 
-    button, input {
-      font-family: inherit;
-      color: inherit;
-    }
+    button, input { font-family: inherit; color: inherit; }
 
     .stage {
       min-height: 100%;
       height: 100%;
       overflow: auto;
-      padding: 20px 24px 28px;
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
       background:
         radial-gradient(ellipse 80% 50% at 50% -10%, rgba(215, 38, 46, 0.45), transparent 60%),
         radial-gradient(ellipse 60% 40% at 100% 100%, rgba(232, 185, 35, 0.12), transparent 55%),
         linear-gradient(180deg, #4A0A0E 0%, #7A0E14 42%, #3A080C 100%);
     }
 
-    body.tv-rotate {
-      overflow: hidden;
-    }
+    body.tv-rotate { overflow: hidden; }
 
     body.tv-rotate .stage {
       position: fixed;
@@ -81,47 +76,67 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 8px;
+      flex-shrink: 0;
     }
 
-    .brand {
-      min-width: 0;
-    }
+    .brand { min-width: 0; }
 
     .wordmark {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(36px, 6vw, 72px);
+      font-size: clamp(28px, 4.2vw, 56px);
       letter-spacing: 0.08em;
       line-height: 0.9;
       text-transform: uppercase;
     }
 
     .tagline {
-      margin-top: 4px;
-      font-size: clamp(14px, 2vw, 20px);
+      margin-top: 2px;
+      font-size: clamp(12px, 1.6vw, 16px);
       letter-spacing: 0.28em;
       color: var(--gold);
       text-transform: uppercase;
     }
 
     .product {
-      margin-top: 8px;
+      margin-top: 6px;
       display: inline-block;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border: 1px solid rgba(215, 38, 46, 0.8);
       background: rgba(215, 38, 46, 0.25);
       color: var(--white);
-      font-size: clamp(13px, 1.6vw, 18px);
+      font-size: clamp(12px, 1.4vw, 16px);
       letter-spacing: 0.18em;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 16px;
       flex-shrink: 0;
-      padding-top: 8px;
+      padding-top: 4px;
     }
+
+    .lead {
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .lead-label {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      color: var(--faint);
+    }
+
+    .lead-time {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: 0.04em;
+      line-height: 0.9;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lead-time.amber { color: var(--amber); }
+    .lead-time.red { color: var(--red-hot); }
 
     .toggle {
       display: flex;
@@ -129,7 +144,7 @@
       gap: 10px;
       cursor: pointer;
       user-select: none;
-      font-size: 16px;
+      font-size: 15px;
       letter-spacing: 0.08em;
       color: var(--muted);
       min-height: 44px;
@@ -169,46 +184,16 @@
       border-color: var(--red);
     }
 
-    .toggle input:checked + .switch::after {
-      transform: translateX(22px);
-    }
-
-    .clock-wrap {
-      text-align: center;
-      margin: 8px 0 6px;
-    }
-
-    .clock {
-      font-family: "Anton", sans-serif;
-      font-size: clamp(88px, 22vw, 240px);
-      letter-spacing: 0.04em;
-      line-height: 0.85;
-      font-variant-numeric: tabular-nums;
-      color: var(--white);
-      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
-      transition: color 0.3s ease;
-    }
-
-    .clock.amber { color: var(--amber); }
-    .clock.red { color: var(--red-hot); }
-
-    .status {
-      margin-top: 10px;
-      font-size: clamp(16px, 2.2vw, 24px);
-      letter-spacing: 0.18em;
-      color: var(--muted);
-    }
-
-    .status.amber { color: var(--amber); }
-    .status.red { color: var(--red-hot); }
+    .toggle input:checked + .switch::after { transform: translateX(22px); }
 
     .controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
+      gap: 10px;
+      justify-content: flex-start;
       align-items: center;
-      margin: 18px 0 22px;
+      margin: 14px 0 14px;
+      flex-shrink: 0;
     }
 
     .btn {
@@ -216,9 +201,9 @@
       border: none;
       cursor: pointer;
       min-height: 56px;
-      padding: 12px 28px;
+      padding: 12px 22px;
       border-radius: 8px;
-      font-size: 22px;
+      font-size: 20px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       background: rgba(255, 255, 255, 0.1);
@@ -226,25 +211,16 @@
       border: 1px solid var(--line);
     }
 
-    .btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .btn:not(:disabled):active {
-      transform: scale(0.98);
-    }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn:not(:disabled):active { transform: scale(0.98); }
 
     .btn-primary {
       background: var(--red);
       border-color: var(--red);
-      min-width: 180px;
       box-shadow: 0 8px 24px rgba(215, 38, 46, 0.4);
     }
 
-    .btn-ghost {
-      background: transparent;
-    }
+    .btn-ghost { background: transparent; }
 
     .cap-field {
       display: flex;
@@ -253,6 +229,7 @@
       font-size: 18px;
       letter-spacing: 0.1em;
       color: var(--muted);
+      margin-left: auto;
     }
 
     .cap-field input {
@@ -268,43 +245,53 @@
       text-align: center;
     }
 
-    .cap-field input:disabled {
-      opacity: 0.55;
-    }
+    .cap-field input:disabled { opacity: 0.55; }
 
     .lanes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      flex: 1 1 auto;
+      align-content: stretch;
+      min-height: 0;
+    }
+
+    @media (max-width: 800px) {
+      .lanes { grid-template-columns: 1fr; }
+      .cap-field { margin-left: 0; }
+    }
+
+    body.tv-rotate .lanes { grid-template-columns: 1fr; }
+
+    .card {
+      container-type: inline-size;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .lane {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px 12px 16px;
-      border-radius: 12px;
+      padding: 14px 16px 16px;
+      border-radius: 14px;
       background: var(--lane);
       border: 1px solid var(--line);
-      border-left: 8px solid var(--accent, var(--red));
-      flex-wrap: wrap;
-      min-height: 84px;
+      border-top: 8px solid var(--accent, var(--red));
+      min-height: 0;
     }
 
-    .lane.done {
-      background: rgba(255, 255, 255, 0.08);
+    .card.done { background: rgba(255, 255, 255, 0.08); }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
     .place {
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 24px;
       letter-spacing: 0.04em;
       color: var(--faint);
       border: 2px solid var(--line);
@@ -334,14 +321,14 @@
     }
 
     .name {
-      flex: 1 1 160px;
-      min-width: 120px;
-      min-height: 56px;
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 52px;
       padding: 8px 12px;
       border: 1px solid transparent;
       border-radius: 8px;
       background: transparent;
-      font-size: clamp(24px, 3.4vw, 36px);
+      font-size: clamp(22px, 3vw, 36px);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -350,40 +337,6 @@
       outline: none;
       border-color: var(--accent, var(--red));
       background: rgba(0, 0, 0, 0.2);
-    }
-
-    .time {
-      width: 150px;
-      text-align: right;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(36px, 5vw, 52px);
-      letter-spacing: 0.03em;
-      font-variant-numeric: tabular-nums;
-      flex-shrink: 0;
-    }
-
-    .time.cap { color: var(--red-hot); }
-    .time.done { color: var(--gold-bright); }
-
-    .lane-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .btn-finish {
-      min-width: 132px;
-      min-height: 56px;
-      background: var(--red);
-      border-color: var(--red);
-      font-size: 22px;
-    }
-
-    .btn-undo {
-      min-width: 100px;
-      min-height: 56px;
-      background: transparent;
     }
 
     .btn-remove {
@@ -395,33 +348,81 @@
       color: var(--faint);
       font-size: 26px;
       line-height: 1;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     .btn-remove:hover { color: var(--white); }
 
+    .card-clock {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(80px, 20cqw, 260px);
+      letter-spacing: 0.04em;
+      line-height: 0.85;
+      font-variant-numeric: tabular-nums;
+      color: var(--white);
+      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+      text-align: center;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0 4px;
+      transition: color 0.3s ease;
+      min-height: 110px;
+    }
+
+    .card-clock.amber { color: var(--amber); }
+    .card-clock.red { color: var(--red-hot); }
+
+    .card-status {
+      text-align: center;
+      font-size: clamp(14px, 1.8vw, 20px);
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .card-status.amber { color: var(--amber); }
+    .card-status.red { color: var(--red-hot); }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .card-actions .btn {
+      flex: 1 1 auto;
+      min-height: 58px;
+      font-size: 22px;
+      padding: 12px 16px;
+    }
+
     .footer {
-      max-width: 1100px;
-      margin: 14px auto 0;
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .hint {
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: 0.08em;
       color: var(--faint);
-      max-width: 720px;
+      max-width: 820px;
     }
 
     @media (max-width: 700px) {
-      .stage { padding: 16px 14px 24px; }
+      .stage { padding: 12px 12px 16px; }
       .header { flex-direction: column; }
-      .time { width: auto; }
-      .place { width: 52px; height: 52px; font-size: 22px; }
-      .lane { min-height: 72px; }
+      .lead { text-align: left; }
+      .place { width: 48px; height: 48px; font-size: 20px; }
     }
   </style>
 </head>
@@ -434,6 +435,10 @@
         <div class="product">TEAM RACE TIMER</div>
       </div>
       <div class="header-actions">
+        <div class="lead" id="leadWrap" hidden>
+          <div class="lead-label">LONGEST</div>
+          <div class="lead-time" id="leadTime">00:00</div>
+        </div>
         <label class="toggle">
           <input type="checkbox" id="rotateToggle">
           <span class="switch"></span>
@@ -442,14 +447,10 @@
       </div>
     </header>
 
-    <div class="clock-wrap">
-      <div class="clock" id="clock">00:00</div>
-      <div class="status" id="status">READY · 40:00 LEFT OF 40 MIN CAP</div>
-    </div>
-
     <div class="controls">
-      <button class="btn btn-primary" id="startBtn">START RACE</button>
-      <button class="btn" id="resetBtn">RESET</button>
+      <button class="btn btn-primary" id="startAllBtn">START ALL</button>
+      <button class="btn" id="pauseAllBtn">PAUSE ALL</button>
+      <button class="btn" id="resetAllBtn">RESET ALL</button>
       <label class="cap-field">
         CAP (MIN)
         <input type="number" id="capInput" min="1" value="40" inputmode="numeric">
@@ -460,38 +461,40 @@
 
     <div class="footer">
       <button class="btn btn-ghost" id="addBtn">+ ADD TEAM</button>
-      <p class="hint">TAP A NAME TO RENAME. HIT FINISH WHEN A TEAM CROSSES THE LINE. UNFINISHED TEAMS SHOW CAP AT THE TIME CAP.</p>
+      <p class="hint">START EACH TEAM ON ITS OWN CLOCK, OR START ALL. FINISH LOCKS THAT TEAM’S TIME. UNFINISHED TEAMS SHOW CAP AT THE TIME CAP.</p>
     </div>
   </div>
 
   <script>
     (function () {
-      const STORAGE_KEY = "tld-team-race-timer-v1";
+      const STORAGE_KEY = "tld-team-race-timer-v2";
+      const STORAGE_KEY_LEGACY = "tld-team-race-timer-v1";
       const TEAM_COLORS = ["#D7262E", "#E8B923", "#2EC4B6", "#9B5DE5", "#F77F00"];
       const CAP_MIN_DEFAULT = 40;
       const PLACE_CLASS = { 1: "gold", 2: "silver", 3: "bronze" };
 
       const els = {
         body: document.body,
-        clock: document.getElementById("clock"),
-        status: document.getElementById("status"),
-        startBtn: document.getElementById("startBtn"),
-        resetBtn: document.getElementById("resetBtn"),
-        capInput: document.getElementById("capInput"),
         lanes: document.getElementById("lanes"),
+        startAllBtn: document.getElementById("startAllBtn"),
+        pauseAllBtn: document.getElementById("pauseAllBtn"),
+        resetAllBtn: document.getElementById("resetAllBtn"),
+        capInput: document.getElementById("capInput"),
         addBtn: document.getElementById("addBtn"),
         rotateToggle: document.getElementById("rotateToggle"),
+        leadWrap: document.getElementById("leadWrap"),
+        leadTime: document.getElementById("leadTime"),
       };
 
-      const defaultTeams = () =>
-        [1, 2, 3, 4].map((n) => ({ id: n, name: "Team " + n, finishMs: null }));
+      function newTeam(id, name) {
+        return { id, name, finishMs: null, running: false, accum: 0, startAt: null };
+      }
+
+      const defaultTeams = () => [1, 2, 3, 4].map((n) => newTeam(n, "Team " + n));
 
       const state = {
         teams: defaultTeams(),
         capMin: CAP_MIN_DEFAULT,
-        running: false,
-        accum: 0,
-        startAt: null,
         nextId: 5,
         rotate: false,
       };
@@ -507,26 +510,39 @@
         return state.capMin * 60 * 1000;
       }
 
-      function elapsedNow() {
-        return state.accum + (state.running && state.startAt != null ? Date.now() - state.startAt : 0);
+      function teamElapsed(team) {
+        return team.accum + (team.running && team.startAt != null ? Date.now() - team.startAt : 0);
       }
 
-      function timing() {
+      function teamTiming(team) {
         const cap = capMs();
-        const elapsed = elapsedNow();
+        const elapsed = teamElapsed(team);
         const capped = elapsed >= cap;
         const shown = Math.min(elapsed, cap);
         return { cap, elapsed, capped, shown, remaining: Math.max(0, cap - shown) };
       }
 
-      function maybeApplyCap() {
-        const t = timing();
-        if (state.running && t.capped) {
-          state.accum = t.cap;
-          state.startAt = null;
-          state.running = false;
-          save();
+      function getTeam(id) {
+        return state.teams.find((t) => t.id === id);
+      }
+
+      function anyStarted() {
+        return state.teams.some((t) => t.running || teamElapsed(t) > 0 || t.finishMs != null);
+      }
+
+      function maybeApplyCaps() {
+        const cap = capMs();
+        let changed = false;
+        for (const team of state.teams) {
+          const t = teamTiming(team);
+          if (team.running && t.capped) {
+            team.accum = cap;
+            team.startAt = null;
+            team.running = false;
+            changed = true;
+          }
         }
+        if (changed) save();
       }
 
       function save() {
@@ -535,16 +551,28 @@
         } catch (e) {}
       }
 
+      function normalizeTeam(raw, index) {
+        const fallback = newTeam(index + 1, "Team " + (index + 1));
+        if (!raw || typeof raw !== "object") return fallback;
+        return {
+          id: typeof raw.id === "number" ? raw.id : fallback.id,
+          name: typeof raw.name === "string" ? raw.name : fallback.name,
+          finishMs: typeof raw.finishMs === "number" ? raw.finishMs : null,
+          running: !!raw.running,
+          accum: typeof raw.accum === "number" ? raw.accum : 0,
+          startAt: raw.startAt === null || typeof raw.startAt === "number" ? raw.startAt : null,
+        };
+      }
+
       function load() {
         try {
-          const raw = localStorage.getItem(STORAGE_KEY);
+          const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY_LEGACY);
           if (!raw) return;
           const data = JSON.parse(raw);
-          if (Array.isArray(data.teams)) state.teams = data.teams;
+          if (Array.isArray(data.teams) && data.teams.length) {
+            state.teams = data.teams.map(normalizeTeam);
+          }
           if (typeof data.capMin === "number" && data.capMin >= 1) state.capMin = data.capMin;
-          if (typeof data.running === "boolean") state.running = data.running;
-          if (typeof data.accum === "number") state.accum = data.accum;
-          if (data.startAt === null || typeof data.startAt === "number") state.startAt = data.startAt;
           if (typeof data.nextId === "number") state.nextId = data.nextId;
           if (typeof data.rotate === "boolean") state.rotate = data.rotate;
         } catch (e) {}
@@ -560,61 +588,131 @@
         return places().findIndex((t) => t.id === id) + 1;
       }
 
-      function startOrPause() {
-        const t = timing();
-        if (state.running) {
-          if (state.startAt != null) state.accum += Date.now() - state.startAt;
-          state.startAt = null;
-          state.running = false;
-        } else {
-          if (t.capped) return;
-          state.startAt = Date.now();
-          state.running = true;
+      function startTeam(id) {
+        maybeApplyCaps();
+        const team = getTeam(id);
+        if (!team || team.running || team.finishMs != null) return;
+        const t = teamTiming(team);
+        if (t.capped) return;
+        team.running = true;
+        team.startAt = Date.now();
+        save();
+        render();
+      }
+
+      function pauseTeam(id) {
+        const team = getTeam(id);
+        if (!team || !team.running) return;
+        if (team.startAt != null) team.accum += Date.now() - team.startAt;
+        team.startAt = null;
+        team.running = false;
+        save();
+        render();
+      }
+
+      function startOrPauseTeam(id) {
+        const team = getTeam(id);
+        if (!team) return;
+        if (team.running) pauseTeam(id);
+        else startTeam(id);
+      }
+
+      function resetTeam(id) {
+        const team = getTeam(id);
+        if (!team) return;
+        team.running = false;
+        team.startAt = null;
+        team.accum = 0;
+        team.finishMs = null;
+        save();
+        render();
+      }
+
+      function startAll() {
+        maybeApplyCaps();
+        const now = Date.now();
+        let changed = false;
+        for (const team of state.teams) {
+          if (team.running || team.finishMs != null) continue;
+          const t = teamTiming(team);
+          if (t.elapsed > 0 || t.capped) continue;
+          team.running = true;
+          team.startAt = now;
+          changed = true;
+        }
+        if (changed) {
+          save();
+          render();
+        }
+      }
+
+      function pauseAll() {
+        const now = Date.now();
+        let changed = false;
+        for (const team of state.teams) {
+          if (!team.running) continue;
+          if (team.startAt != null) team.accum += now - team.startAt;
+          team.startAt = null;
+          team.running = false;
+          changed = true;
+        }
+        if (changed) {
+          save();
+          render();
+        }
+      }
+
+      function resetAll() {
+        for (const team of state.teams) {
+          team.running = false;
+          team.startAt = null;
+          team.accum = 0;
+          team.finishMs = null;
         }
         save();
         render();
       }
 
-      function reset() {
-        state.startAt = null;
-        state.running = false;
-        state.accum = 0;
-        state.teams = state.teams.map((t) => ({ ...t, finishMs: null }));
-        save();
-        render();
-      }
-
       function setCap(value) {
-        const t = timing();
-        if (state.running || t.elapsed > 0) return;
+        if (anyStarted()) return;
         state.capMin = Math.max(1, Number(value) || 1);
         save();
         render();
       }
 
       function finish(id) {
-        const t = timing();
+        maybeApplyCaps();
+        const team = getTeam(id);
+        if (!team || team.finishMs != null) return;
+        const t = teamTiming(team);
         if (t.elapsed <= 0 || t.capped) return;
-        state.teams = state.teams.map((tm) => (tm.id === id ? { ...tm, finishMs: t.shown } : tm));
+        team.finishMs = t.shown;
+        team.accum = t.shown;
+        team.startAt = null;
+        team.running = false;
         save();
         render();
       }
 
       function undo(id) {
-        state.teams = state.teams.map((tm) => (tm.id === id ? { ...tm, finishMs: null } : tm));
+        const team = getTeam(id);
+        if (!team) return;
+        team.finishMs = null;
         save();
         render();
       }
 
       function rename(id, name) {
-        state.teams = state.teams.map((tm) => (tm.id === id ? { ...tm, name } : tm));
+        const team = getTeam(id);
+        if (!team) return;
+        team.name = name;
         save();
       }
 
       function addTeam() {
         const id = state.nextId++;
         const name = "Team " + (state.teams.length + 1);
-        state.teams = state.teams.concat([{ id, name, finishMs: null }]);
+        state.teams = state.teams.concat([newTeam(id, name)]);
         save();
         render();
       }
@@ -638,29 +736,62 @@
         return "";
       }
 
-      function statusText(t) {
-        const label = t.capped ? "TIME CAP" : state.running ? "RUNNING" : t.elapsed > 0 ? "PAUSED" : "READY";
-        return label + " · " + fmt(t.remaining) + " LEFT OF " + state.capMin + " MIN CAP";
+      function teamStatus(team, t) {
+        if (team.finishMs != null) return "FINISHED";
+        if (t.capped) return "TIME CAP";
+        if (team.running) return "RUNNING · " + fmt(t.remaining) + " LEFT";
+        if (t.elapsed > 0) return "PAUSED · " + fmt(t.remaining) + " LEFT";
+        return "READY";
+      }
+
+      function longestTiming() {
+        let best = null;
+        for (const team of state.teams) {
+          const t = teamTiming(team);
+          if (t.elapsed <= 0 && team.finishMs == null) continue;
+          if (!best || t.shown > best.shown) best = t;
+        }
+        return best;
+      }
+
+      function idleCount() {
+        return state.teams.filter((team) => {
+          const t = teamTiming(team);
+          return !team.running && team.finishMs == null && t.elapsed <= 0 && !t.capped;
+        }).length;
+      }
+
+      function escapeAttr(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
       }
 
       function render() {
-        maybeApplyCap();
-        const t = timing();
-        const cClass = clockClass(t);
-
-        els.clock.textContent = fmt(t.shown);
-        els.clock.className = "clock" + (cClass ? " " + cClass : "");
-        els.status.textContent = statusText(t);
-        els.status.className = "status" + (cClass ? " " + cClass : "");
-
-        els.startBtn.textContent = state.running ? "PAUSE" : t.elapsed > 0 ? "RESUME" : "START RACE";
-        els.startBtn.disabled = !state.running && t.capped;
+        maybeApplyCaps();
 
         els.capInput.value = String(state.capMin);
-        els.capInput.disabled = state.running || t.elapsed > 0;
-
+        els.capInput.disabled = anyStarted();
         els.rotateToggle.checked = state.rotate;
         els.body.classList.toggle("tv-rotate", state.rotate);
+
+        const runningAny = state.teams.some((t) => t.running);
+        els.startAllBtn.disabled = idleCount() === 0;
+        els.pauseAllBtn.disabled = !runningAny;
+
+        const lead = longestTiming();
+        if (lead) {
+          const c = clockClass(lead);
+          els.leadWrap.hidden = false;
+          els.leadTime.textContent = lead.capped ? "CAP" : fmt(lead.shown);
+          els.leadTime.className = "lead-time" + (c ? " " + c : "");
+        } else {
+          els.leadWrap.hidden = true;
+          els.leadTime.textContent = "00:00";
+          els.leadTime.className = "lead-time";
+        }
 
         const active = document.activeElement;
         const activeId = active && active.dataset && active.dataset.teamId;
@@ -668,24 +799,32 @@
         const selEnd = active && active.selectionEnd;
 
         els.lanes.innerHTML = state.teams.map((team, index) => {
+          const t = teamTiming(team);
           const done = team.finishMs != null;
           const place = done ? placeOf(team.id) : 0;
           const accent = TEAM_COLORS[index % TEAM_COLORS.length];
           const placeClass = PLACE_CLASS[place] || "";
+          const cClass = clockClass(t);
           const timeText = done ? fmt(team.finishMs) : t.capped ? "CAP" : fmt(t.shown);
-          const timeClass = done ? "done" : t.capped ? "cap" : "";
-          const action = done
-            ? `<button class="btn btn-undo" data-act="undo" data-id="${team.id}">UNDO</button>`
-            : `<button class="btn btn-finish" data-act="finish" data-id="${team.id}" ${t.elapsed <= 0 || t.capped ? "disabled" : ""}>FINISH</button>`;
-          return `<div class="lane${done ? " done" : ""}" style="--accent:${accent}">
-            <div class="place${placeClass ? " " + placeClass : ""}">${done ? "#" + place : "–"}</div>
-            <input class="name" data-team-id="${team.id}" value="${escapeAttr(team.name)}" aria-label="Team name">
-            <div class="time ${timeClass}">${timeText}</div>
-            <div class="lane-actions">
-              ${action}
+          const startLabel = team.running ? "PAUSE" : t.elapsed > 0 ? "RESUME" : "START";
+          const startDisabled = done || t.capped;
+          const finishBtn = done
+            ? `<button class="btn btn-ghost" data-act="undo" data-id="${team.id}">UNDO</button>`
+            : `<button class="btn btn-primary" data-act="finish" data-id="${team.id}" ${t.elapsed <= 0 || t.capped ? "disabled" : ""}>FINISH</button>`;
+          return `<article class="card${done ? " done" : ""}" style="--accent:${accent}">
+            <div class="card-top">
+              <div class="place${placeClass ? " " + placeClass : ""}">${done ? "#" + place : "–"}</div>
+              <input class="name" data-team-id="${team.id}" value="${escapeAttr(team.name)}" aria-label="Team name">
               <button class="btn-remove" data-act="remove" data-id="${team.id}" aria-label="Remove ${escapeAttr(team.name)}">✕</button>
             </div>
-          </div>`;
+            <div class="card-clock${cClass ? " " + cClass : ""}">${timeText}</div>
+            <div class="card-status${cClass ? " " + cClass : ""}">${teamStatus(team, t)}</div>
+            <div class="card-actions">
+              <button class="btn btn-primary" data-act="toggle" data-id="${team.id}" ${startDisabled ? "disabled" : ""}>${startLabel}</button>
+              ${finishBtn}
+              <button class="btn" data-act="reset" data-id="${team.id}">RESET</button>
+            </div>
+          </article>`;
         }).join("");
 
         if (activeId) {
@@ -697,24 +836,15 @@
         }
       }
 
-      function escapeAttr(s) {
-        return String(s)
-          .replace(/&/g, "&amp;")
-          .replace(/"/g, "&quot;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-      }
-
-      els.startBtn.addEventListener("click", startOrPause);
-      els.resetBtn.addEventListener("click", reset);
+      els.startAllBtn.addEventListener("click", startAll);
+      els.pauseAllBtn.addEventListener("click", pauseAll);
+      els.resetAllBtn.addEventListener("click", resetAll);
       els.addBtn.addEventListener("click", addTeam);
       els.capInput.addEventListener("change", (e) => setCap(e.target.value));
       els.capInput.addEventListener("input", (e) => {
-        const t = timing();
-        if (state.running || t.elapsed > 0) return;
+        if (anyStarted()) return;
         state.capMin = Math.max(1, Number(e.target.value) || 1);
         save();
-        els.status.textContent = statusText(timing());
       });
       els.rotateToggle.addEventListener("change", (e) => setRotate(e.target.checked));
 
@@ -722,8 +852,10 @@
         const btn = e.target.closest("[data-act]");
         if (!btn) return;
         const id = Number(btn.dataset.id);
+        if (btn.dataset.act === "toggle") startOrPauseTeam(id);
         if (btn.dataset.act === "finish") finish(id);
         if (btn.dataset.act === "undo") undo(id);
+        if (btn.dataset.act === "reset") resetTeam(id);
         if (btn.dataset.act === "remove") removeTeam(id);
       });
 
@@ -732,29 +864,35 @@
         rename(Number(e.target.dataset.teamId), e.target.value);
       });
 
-      // Expose for tests
       window.TLDTimer = {
         state,
-        startOrPause,
-        reset,
+        startTeam,
+        pauseTeam,
+        startOrPauseTeam,
+        resetTeam,
+        startAll,
+        pauseAll,
+        resetAll,
         setCap,
         finish,
         undo,
         addTeam,
         removeTeam,
         setRotate,
-        timing,
+        teamTiming,
+        teamElapsed,
         fmt,
         render,
         save,
         load,
+        placeOf,
       };
 
       load();
-      maybeApplyCap();
+      maybeApplyCaps();
       render();
       setInterval(() => {
-        if (state.running) render();
+        if (state.teams.some((t) => t.running)) render();
       }, 200);
     })();
   </script>
